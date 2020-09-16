@@ -23,12 +23,13 @@ class get_segmentation(object):
         self.device = torch.device('cpu')
         self.camera = args["camera_id"]
         self.threshold = args["threshold"]
+        self.camera_res = args["camera_resolution"]
         self.background_image = self.load_background()
         self.myModel = self.load_model()
 
     def load_background(self):
         image = cv2.imread(self.background_image)
-        image = cv2.resize(image, (640, 480), interpolation=cv2.INTER_CUBIC)
+        image = cv2.resize(image, (self.camera_res[0], self.camera_res[1]), interpolation=cv2.INTER_CUBIC)
         return image
 
     def load_model(self):
@@ -77,16 +78,25 @@ class get_segmentation(object):
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='Background Matting')
-    parser.add_argument('--model', default='data/segmentation_model.pth', help='Location of the Trained Model')
+    parser.add_argument('--model',
+                        default='C:/Users/Kenil/Desktop/Github/ProjectPhase1_Group6/data/models/segmentation_model.pth',
+                        help='Location of the Trained Model')
     parser.add_argument('--without_gpu', action='store_true', default=True, help='Use CPU')
-    parser.add_argument('--background_image', default='background/sf_bridge.jpg',  help='Location of Background Image')
+    parser.add_argument('--background_image',
+                        default='C:/Users/Kenil/Desktop/Github/ProjectPhase1_Group6/data/bg_images/sf_bridge.jpg',
+                        help='Location of Background Image')
     parser.add_argument('--input_resolution', default=256,  help='Input resolution (Higher == Slower == Acccurate)')
+    parser.add_argument('--camera_resolution', default=[640, 360],
+                        help ='Input resolution (Higher == Slower == Acccurate)')
     parser.add_argument('--camera_id', default=0,  help='Camera ID to be used')
-    parser.add_argument('--threshold', default=0.6,  help='Set Threshold')
+    parser.add_argument('--threshold', default=0.75,  help='Set Threshold')
 
     args = vars(parser.parse_args())
     get_seg = get_segmentation(args)
     videoCapture = cv2.VideoCapture(args["camera_id"])
+    videoCapture.set(cv2.CAP_PROP_FRAME_WIDTH, args["camera_resolution"][0])
+    videoCapture.set(cv2.CAP_PROP_FRAME_HEIGHT, args["camera_resolution"][1])
+
     while True:
         ret, frame = videoCapture.read()
         output = get_seg.run_torch(frame)
