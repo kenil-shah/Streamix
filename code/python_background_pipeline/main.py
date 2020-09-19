@@ -64,7 +64,7 @@ class get_segmentation(object):
 
     def convert_to_onnx(self):
         dummy_input = torch.randn(1, 3, self.INPUT_SIZE, self.INPUT_SIZE)
-        torch.onnx.export(self.myModel, dummy_input, "segmentation_model.onnx")
+        torch.onnx.export(self.myModel, dummy_input, "segmentation_model.onnx", opset_version=10)
 
     def run_onnx(self):
         pass
@@ -79,31 +79,37 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='Background Matting')
     parser.add_argument('--model',
-                        default='C:/Users/Kenil/Desktop/Github/ProjectPhase1_Group6/data/models/segmentation_model.pth',
+                        default="/home/hpatel24/Fall2020/CSC510/project1/Streamix/data/models/segmentation_model.pth",
                         help='Location of the Trained Model')
     parser.add_argument('--without_gpu', action='store_true', default=True, help='Use CPU')
     parser.add_argument('--background_image',
-                        default='C:/Users/Kenil/Desktop/Github/ProjectPhase1_Group6/data/bg_images/sf_bridge.jpg',
+                        default='/home/hpatel24/Fall2020/CSC510/project1/Streamix/data/bg_images/sf_bridge.jpg',
                         help='Location of Background Image')
     parser.add_argument('--input_resolution', default=256,  help='Input resolution (Higher == Slower == Acccurate)')
     parser.add_argument('--camera_resolution', default=[640, 360],
                         help ='Input resolution (Higher == Slower == Acccurate)')
     parser.add_argument('--camera_id', default=0,  help='Camera ID to be used')
     parser.add_argument('--threshold', default=0.75,  help='Set Threshold')
-
+    parser.add_argument('--convert', default=False, help='Convert model to ONNX');
     args = vars(parser.parse_args())
-    get_seg = get_segmentation(args)
-    videoCapture = cv2.VideoCapture(args["camera_id"])
-    videoCapture.set(cv2.CAP_PROP_FRAME_WIDTH, args["camera_resolution"][0])
-    videoCapture.set(cv2.CAP_PROP_FRAME_HEIGHT, args["camera_resolution"][1])
 
-    while True:
-        ret, frame = videoCapture.read()
-        output = get_seg.run_torch(frame)
-        cv2.imshow("Output", output)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
-    videoCapture.release()
+    get_seg = get_segmentation(args)
+    if args["convert"] == False:
+        print("Here")
+        get_seg.convert_to_onnx()
+        exit()
+    else:
+        videoCapture = cv2.VideoCapture(args["camera_id"])
+        videoCapture.set(cv2.CAP_PROP_FRAME_WIDTH, args["camera_resolution"][0])
+        videoCapture.set(cv2.CAP_PROP_FRAME_HEIGHT, args["camera_resolution"][1])
+
+        while True:
+            ret, frame = videoCapture.read()
+            output = get_seg.run_torch(frame)
+            cv2.imshow("Output", output)
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                break
+        videoCapture.release()
 
 
 

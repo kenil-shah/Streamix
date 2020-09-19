@@ -21,7 +21,6 @@
     "express": "^4.17.1",
     "numjs": "^0.16.0",
     "onnxjs": "^0.1.8",
-    "opencvjs": "^1.0.1",
-    "webassembly": "^0.11.0"
+    "opencvjs": "^1.0.1"
   }
 }
