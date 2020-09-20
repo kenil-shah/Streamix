@@ -4,7 +4,6 @@ import torch.onnx
 torch.set_grad_enabled(False)
 import argparse
 import numpy as np
-import onnx
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -47,7 +46,7 @@ class get_segmentation(object):
         inputs = tensor_4D.to(self.device)
         seg, alpha = net(inputs)
         alpha_np = alpha[0, 0, :, :].data.numpy()
-        fg_alpha = cv2.resize(alpha_np, (origin_w, origin_h), interpolation=cv2.INTER_CUBIC)
+        fg_alpha = cv2.resize(alpha_np, (self.camera_res[0], self.camera_res[1]), interpolation=cv2.INTER_CUBIC)
         fg_alpha[fg_alpha < self.threshold] = 0
         fg_alpha[fg_alpha >= self.threshold] = 1
         bg_alpha = 1 - fg_alpha
