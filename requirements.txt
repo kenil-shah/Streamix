@@ -4,3 +4,5 @@ torchvision==0.4.0
 opencv-contrib-python==4.2.0.34
 opencv-python==4.2.0.34
 onnx==1.7.0
+flask==1.1.1
+Flask-SocketIO==4.3.1
