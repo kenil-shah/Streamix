@@ -1,14 +1,9 @@
 
-Instructions to run JS application code.
+#Steps to run flask server
 
-1. Install Node and NPM
+##From the root directory of this project:
 
-From the project root directory,
-2. npm install express
-3. npm install socket.io
-4. npm install nodemon 
-5. npm run dev
-
-Now, type 'http://localhost:5000/' in the browser and allow it to access the camera.
-
-Hit ctrl+c to stop the server.
+1. ```pip install -r requirements.txt```
+2. ```set FLASK_APP=code/server.py```
+3. Only if you are a developer, ```set FLASK_ENV=development```
+4. ```python -m flask run```
