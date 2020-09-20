@@ -4,9 +4,17 @@ import os
 import cv2
 from main import get_segmentation
 import argparse
+import numpy
+import torch
+import tkinter
+import onnx
 # Root directory of the project
 ROOT_DIR = os.getcwd()
-
+print("CV2", cv2.__version__)
+print("numpy", numpy.__version__)
+print("Torch", torch.__version__)
+print("Onnx", onnx.__version__)
+print("TKinter", tkinter.__version__)
 
 
 class Raw_video:

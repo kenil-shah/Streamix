@@ -1,0 +1,6 @@
+numpy==1.18.4
+torch==1.5.0
+torchvision==0.4.0
+opencv-contrib-python==4.2.0.34
+opencv-python==4.2.0.34
+onnx==1.7.0
