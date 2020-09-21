@@ -10,11 +10,6 @@ import tkinter
 import onnx
 # Root directory of the project
 ROOT_DIR = os.getcwd()
-print("CV2", cv2.__version__)
-print("numpy", numpy.__version__)
-print("Torch", torch.__version__)
-print("Onnx", onnx.__version__)
-print("TKinter", tkinter.__version__)
 
 
 class Raw_video:
@@ -48,11 +43,11 @@ class Virtual_BG:
     def set_parameters(self):
         parser = argparse.ArgumentParser(description='Background Matting')
         parser.add_argument('--model',
-                            default='C:/Users/Kenil/Desktop/Github/ProjectPhase1_Group6/data/models/segmentation_model.pth',
+                            default='C:/Users/Kenil/Desktop/Github/Streamix/data/models/only_par.pth',
                             help='Location of the Trained Model')
         parser.add_argument('--without_gpu', action='store_true', default=True, help='Use CPU')
         parser.add_argument('--background_image',
-                            default='C:/Users/Kenil/Desktop/Github/ProjectPhase1_Group6/data/bg_images/sf_bridge.jpg',
+                            default='C:/Users/Kenil/Desktop/Github/Streamix/data/bg_images/sf_bridge.jpg',
                             help='Location of Background Image')
         parser.add_argument('--input_resolution', default=256, help='Input resolution (Higher == Slower == Acccurate)')
         parser.add_argument('--camera_resolution', default=[640, 360],

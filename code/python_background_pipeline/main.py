@@ -6,34 +6,16 @@ import argparse
 import numpy as np
 import warnings
 warnings.filterwarnings("ignore")
-
+from python_background_pipeline.model.segnet import SegMattingNet
+#from model.segnet import SegMattingNet
 """
 TODO: Onnx Inference Code
 """
 
-def get_args():
-    parser = argparse.ArgumentParser(description='Background Matting')
-    parser.add_argument('--model',
-                        default='C:/Users/Kenil/Desktop/Github/Streamix/data/models/segmentation_model.pth',
-                        help='Location of the Trained Model')
-    parser.add_argument('--without_gpu', action='store_true', default=True, help='Use CPU')
-    parser.add_argument('--background_image',
-                        default='C:/Users/Kenil/Desktop/Github/Streamix/data/bg_images/sf_bridge.jpg',
-                        help='Location of Background Image')
-    parser.add_argument('--input_resolution', default=256,  help='Input resolution (Higher == Slower == Acccurate)')
-    parser.add_argument('--camera_resolution', default=[640, 360],
-                        help ='Input resolution (Higher == Slower == Acccurate)')
-    parser.add_argument('--camera_id', default=0,  help='Camera ID to be used')
-    parser.add_argument('--threshold', default=0.75,  help='Set Threshold')
-
-    args = vars(parser.parse_args())
-    return args
-
 
 class get_segmentation(object):
 
-    def __init__(self):
-        args = get_args()
+    def __init__(self,args):
         self.model = args["model"]
         self.without_gpu = args["without_gpu"]
         self.background_image = args["background_image"]
@@ -51,8 +33,10 @@ class get_segmentation(object):
         return image
 
     def load_model(self):
-
-        myModel = torch.load(self.model, map_location=lambda storage, loc: storage)
+        myModel = SegMattingNet()
+        myModel.load_state_dict(torch.load(self.model),strict=False)
+        #myModel = torch.load(self.model, map_location=lambda storage, loc: storage)
+        #torch.save(myModel.state_dict(), "C:/Users/Kenil/Desktop/Github/Streamix/data/models/only_par.pth")
         myModel.eval()
         myModel.to(self.device)
 
@@ -101,10 +85,13 @@ if __name__ == '__main__':
     videoCapture = cv2.VideoCapture(args["camera_id"])
     videoCapture.set(cv2.CAP_PROP_FRAME_WIDTH, args["camera_resolution"][0])
     videoCapture.set(cv2.CAP_PROP_FRAME_HEIGHT, args["camera_resolution"][1])
-
+    import time
     while True:
         ret, frame = videoCapture.read()
+        start = time.time()
         output = get_seg.run_torch(frame)
+        end = time.time()
+        print(end-start)
         cv2.imshow("Output", output)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break

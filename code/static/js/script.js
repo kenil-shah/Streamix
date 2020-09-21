@@ -13,7 +13,7 @@ function init() {
                       navigator.mozGetUserMedia ||
                       navigator.maGetUserMedia;
   navigator.getMedia({
-      video: { width: 800, height: 450},
+      video: { width: 640, height: 360},
       audio: false
   }, function(stream){
       video.srcObject = stream;
@@ -25,8 +25,8 @@ function init() {
   can_context = can.getContext('2d');
 
   can1 = document.createElement("CANVAS");
-  can1.width  = 800;
-  can1.height = 450;
+  can1.width  = 640;
+  can1.height = 360;
   can1_context = can1.getContext('2d');
 
   video.addEventListener('play', computeFrame );
@@ -50,7 +50,7 @@ function computeFrame() {
     i = i+1;
     ie.innerHTML = i.toString();
     je.innerHTML = j.toString();
-   setTimeout(computeFrame, 1);
+   setTimeout(computeFrame, 40);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
