@@ -2,13 +2,9 @@ from data_bridge import *
 from cv2 import cv2
 import os
 import cv2
-from main import get_segmentation
 import argparse
-import numpy
-import torch
-import tkinter
-import onnx
 # Root directory of the project
+from main import get_segmentation
 ROOT_DIR = os.getcwd()
 
 
