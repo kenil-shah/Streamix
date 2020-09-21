@@ -4,6 +4,7 @@ var j = 0
 
 function init() {
   video = document.getElementById("video")
+  image_page = document.getElementById("img")
   ie = document.getElementById("i");
   je = document.getElementById("j");
 
@@ -21,9 +22,6 @@ function init() {
       alert("error occured")
   });
 
-  can = document.getElementById('output-canvas');
-  can_context = can.getContext('2d');
-
   can1 = document.createElement("CANVAS");
   can1.width  = 640;
   can1.height = 360;
@@ -33,24 +31,20 @@ function init() {
 }
 
 socket.on('new', data => {
-    var img = new Image();
-    img.src = 'data:image/jpeg;base64,' + data;
-    can_context.drawImage(img, 0, 0);
+    image_page.src = 'data:image/jpeg;base64,' + data;
     j = j+1;
     ie.innerHTML = i.toString();
     je.innerHTML = j.toString();
 })
 
 function computeFrame() {
-    //can_context.drawImage(video, 0, 0, video.videoWidth , video.videoHeight );
-    //setTimeout(computeFrame, 0);
     can1_context.drawImage(video, 0, 0, video.videoWidth , video.videoHeight );
     var data = can1.toDataURL('image/jpeg').split(';base64,')[1];
     socket.emit('image',data);
     i = i+1;
     ie.innerHTML = i.toString();
     je.innerHTML = j.toString();
-   setTimeout(computeFrame, 40);
+    setTimeout(computeFrame, 40);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
