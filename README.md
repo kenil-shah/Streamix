@@ -10,3 +10,14 @@ Streamix is a video conferencing feature that provides you seamless virtual back
 
 
 # Installation
+1. Clone Streamix Repo
+2. From the root directory run the following command
+```
+pip install -r requirements.txt
+```
+
+# Usage
+1. Go to code directory and run the following command.
+```
+python server.py
+```
