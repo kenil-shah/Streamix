@@ -7,25 +7,24 @@ import cv2
 import base64
 import time
 import argparse
-from python_background_pipeline.main import get_segmentation
+import os
+from python_background_pipeline.segmenter import get_segmentation
+
+
+pathtomodel = os.path.join("..", "data", "models", "only_params.pth")
+pathtobg = os.path.join("..", "data", "bg_images", "HomeBG.jpg")
 
 def get_args():
 
-    parser = argparse.ArgumentParser(description='Background Matting')
-    parser.add_argument('--model',
-                        default='C:/Users/Kenil/Desktop/Github/Streamix/data/models/only_par.pth',
-                        help='Location of the Trained Model')
-    parser.add_argument('--without_gpu', action='store_true', default=True, help='Use CPU')
-    parser.add_argument('--background_image',
-                        default='C:/Users/Kenil/Desktop/Github/Streamix/data/bg_images/HomeBG.jpg',
-                        help='Location of Background Image')
-    parser.add_argument('--input_resolution', default=256, help='Input resolution (Higher == Slower == Acccurate)')
-    parser.add_argument('--camera_resolution', default=[640, 360],
-                        help='Input resolution (Higher == Slower == Acccurate)')
-    parser.add_argument('--camera_id', default=0, help='Camera ID to be used')
-    parser.add_argument('--threshold', default=0.75, help='Set Threshold')
+    args = {}
+    args['model'] = pathtomodel
+    args['without_gpu'] = True
+    args['background_image'] = pathtobg
+    args['input_resolution'] = 256
+    args['camera_resolution'] = [640, 360]
+    args['camera_id'] = 0
+    args['threshold'] = 0.75
 
-    args = vars(parser.parse_args())
     return args
 
 
