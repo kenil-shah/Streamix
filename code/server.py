@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template
+from flask import render_template, url_for
 from flask_socketio import SocketIO, emit
 from engineio.payload import Payload
 import numpy
@@ -12,14 +12,14 @@ from python_background_pipeline.segmenter import get_segmentation
 
 
 pathtomodel = os.path.join("..", "data", "models", "only_params.pth")
-pathtobg = os.path.join("..", "data", "bg_images", "HomeBG.jpg")
+pathtobg = os.path.join(".", "static", "images", "HomeBG.jpg")
 
-def get_args():
+def get_args(bgpath):
 
     args = {}
     args['model'] = pathtomodel
     args['without_gpu'] = True
-    args['background_image'] = pathtobg
+    args['background_image'] = bgpath
     args['input_resolution'] = 256
     args['camera_resolution'] = [640, 360]
     args['camera_id'] = 0
@@ -27,15 +27,22 @@ def get_args():
 
     return args
 
-
-get_seg = get_segmentation(get_args())
-
-app = Flask(__name__)
+get_seg = None
+staticpath = os.path.join(os.path.abspath("."), "static")
+app = Flask(__name__, static_folder=staticpath)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 Payload.max_decode_packets = 100
 
 socketio = SocketIO(app)
+
+
+@socketio.on('bgimage')
+def handle_bgimage(data):
+    print(data)
+    pathtobg = os.path.join(".", "static", "images", data)
+    global get_seg
+    get_seg = get_segmentation(get_args(pathtobg))
 
 @socketio.on('image')
 def handle_image(data):
@@ -51,11 +58,13 @@ def handle_image(data):
     data = data.decode('utf-8')
     emit('new', data)
 
-
 @app.route('/')
-def hello_world():
-    return render_template("test.html")
+def home():
+    return render_template("selectimage.html")
 
+@app.route('/startvideo')
+def test():
+    return render_template("test.html")
 
 if __name__ == '__main__':
     socketio.run(app)
