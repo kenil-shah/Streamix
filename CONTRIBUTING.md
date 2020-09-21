@@ -1,96 +1,66 @@
-# Contributing to CSC-510-HW1
+# Contributor Covenant Code of Conduct
 
-:+1::tada: First off, thanks for taking the time to contribute! :tada::+1:
+## Our Pledge
 
-The following is a set of guidelines for contributing to Streamix and its packages, which are hosted in the [Streamix](https://github.com/kenil-shah/Streamix) on GitHub. These are mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
+In the interest of fostering an open and welcoming environment, we as
+contributors and maintainers pledge to making participation in our project and
+our community a harassment-free experience for everyone, regardless of age, body
+size, disability, ethnicity, sex characteristics, gender identity and expression,
+level of experience, education, socio-economic status, nationality, personal
+appearance, race, religion, or sexual identity and orientation.
 
-#### Table Of Contents
+## Our Standards
 
-[Code of Conduct](#code-of-conduct)
+Examples of behavior that contributes to creating a positive environment
+include:
 
-[How Can I Contribute?](#how-can-i-contribute)
-  * [Reporting Bugs](#reporting-bugs)
-  * [Suggesting Enhancements](#suggesting-enhancements)
-  * [Your First Code Contribution](#your-first-code-contribution)
-  * [Pull Requests](#pull-requests)
+* Using welcoming and inclusive language
+* Being respectful of differing viewpoints and experiences
+* Gracefully accepting constructive criticism
+* Focusing on what is best for the community
+* Showing empathy towards other community members
 
-[Styleguides](#styleguides)
-  * [Git Commit Messages](#git-commit-messages)
+Examples of unacceptable behavior by participants include:
 
-## Code of Conduct
+* The use of sexualized language or imagery and unwelcome sexual attention or
+ advances
+* Trolling, insulting/derogatory comments, and personal or political attacks
+* Public or private harassment
+* Publishing others' private information, such as a physical or electronic
+ address, without explicit permission
+* Other conduct which could reasonably be considered inappropriate in a
+ professional setting
 
-This project and everyone participating in it is governed by the [Streamix](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [harshit.p.patel96@gmail.com](mailto:harshit.p.patel96@gmail.com).
+## Our Responsibilities
 
-## What should I know before I get started?
-This is a test repository, but feel free to file an issue if you still need to.
+Project maintainers are responsible for clarifying the standards of acceptable
+behavior and are expected to take appropriate and fair corrective action in
+response to any instances of unacceptable behavior.
 
-## How Can I Contribute?
+Project maintainers have the right and responsibility to remove, edit, or
+reject comments, commits, code, wiki edits, issues, and other contributions
+that are not aligned to this Code of Conduct, or to ban temporarily or
+permanently any contributor for other behaviors that they deem inappropriate,
+threatening, offensive, or harmful.
 
-### Reporting Bugs
+## Scope
 
-This section guides you through submitting a bug report for Streamix. Following these guidelines helps maintainers and the community understand your report :pencil:, reproduce the behavior :computer: :computer:, and find related reports :mag_right:.
+This Code of Conduct applies both within project spaces and in public spaces
+when an individual is representing the project or its community. Examples of
+representing a project or community include using an official project e-mail
+address, posting via an official social media account, or acting as an appointed
+representative at an online or offline event. Representation of a project may be
+further defined and clarified by project maintainers.
 
-Before creating bug reports, please check if that bug is already reported as you might find out that you don't need to create one. When you are creating a bug report, please [include as many details as possible](#how-do-i-submit-a-good-bug-report). 
+## Enforcement
 
-> **Note:** If you find a **Closed** issue that seems like it is the same thing that you're experiencing, open a new issue and include a link to the original issue in the body of your new one.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be
+reported by contacting the project team at kshah9@ncsu.edu. All
+complaints will be reviewed and investigated and will result in a response that
+is deemed necessary and appropriate to the circumstances. The project team is
+obligated to maintain confidentiality with regard to the reporter of an incident.
+Further details of specific enforcement policies may be posted separately.
 
-#### How Do I Submit A (Good) Bug Report?
-
-Bugs are tracked as [GitHub issues](https://guides.github.com/features/issues/). Create an issue on the repository and provide as much information as you can provide, like OS details, expected behaviour, etc.
-
-Explain the problem and include additional details to help maintainers reproduce the problem:
-
-* **Use a clear and descriptive title** for the issue to identify the problem.
-* **Describe the exact steps which reproduce the problem** in as many details as possible. 
-* **Provide specific examples to demonstrate the steps**. Include links to files or GitHub projects, or copy/pasteable snippets, which you use in those examples. If you're providing snippets in the issue, use [Markdown code blocks](https://help.github.com/articles/markdown-basics/#multiple-lines).
-* **Describe the behavior you observed after following the steps** and point out what exactly is the problem with that behavior.
-* **Explain which behavior you expected to see instead and why.**
-
-Include details about your configuration and environment:
-
-* **What's the name and version of the OS you're using**?
-
-### Pull Requests
-
-The process described here has several goals:
-
-- Maintain Streamix's quality
-- Fix problems that are important to users
-- Engage the community in working toward the best possible Streamix
-- Enable a sustainable system for Streamix's maintainers to review contributions
-
-Please follow these steps to have your contribution considered by the maintainers:
-
-1. Follow the [styleguides](#styleguides)
-2. After you submit your pull request, verify that all [status checks](https://help.github.com/articles/about-status-checks/) are passing <details><summary>What if the status checks are failing?</summary>If a status check is failing, and you believe that the failure is unrelated to your change, please leave a comment on the pull request explaining why you believe the failure is unrelated. A maintainer will re-run the status check for you. If we conclude that the failure was a false positive, then we will open an issue to track that problem with our status check suite.</details>
-
-While the prerequisites above must be satisfied prior to having your pull request reviewed, the reviewer(s) may ask you to complete additional design work, tests, or other changes before your pull request can be ultimately accepted.
-
-## Styleguides
-
-### Git Commit Messages
-
-* Use the present tense ("Add feature" not "Added feature")
-* Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
-* Limit the first line to 72 characters or less
-* Reference issues and pull requests liberally after the first line
-* When only changing documentation, include `[ci skip]` in the commit title
-* Consider starting the commit message with an applicable emoji:
-    * :art: `:art:` when improving the format/structure of the code
-    * :racehorse: `:racehorse:` when improving performance
-    * :non-potable_water: `:non-potable_water:` when plugging memory leaks
-    * :memo: `:memo:` when writing docs
-    * :penguin: `:penguin:` when fixing something on Linux
-    * :apple: `:apple:` when fixing something on macOS
-    * :checkered_flag: `:checkered_flag:` when fixing something on Windows
-    * :bug: `:bug:` when fixing a bug
-    * :fire: `:fire:` when removing code or files
-    * :green_heart: `:green_heart:` when fixing the CI build
-    * :white_check_mark: `:white_check_mark:` when adding tests
-    * :lock: `:lock:` when dealing with security
-    * :arrow_up: `:arrow_up:` when upgrading dependencies
-    * :arrow_down: `:arrow_down:` when downgrading dependencies
-    * :shirt: `:shirt:` when removing linter warnings
-   
- ## Attribution
- * This Contribution instructions were adapted from [Atom's Contributing.md](https://github.com/atom/atom/blob/master/CONTRIBUTING.md)
+Project maintainers who do not follow or enforce the Code of Conduct in good
+faith may face temporary or permanent repercussions as determined by other
+members of the project's leadership.
