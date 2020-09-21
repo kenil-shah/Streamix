@@ -3,15 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Streamix | Test Server</title>
+    <style>
+       #images {
+           width:55vw;
+           margin:auto;
+       }
+       #logopng {
+           width: 120px;
+           height: 50px;
+       }
+       .bgimages {
+           width: 200px;
+           height: 112px;
+       }
+       #videos {
+       	   width: 80vw;
+       	   margin:auto;
+       }
+       #video {
+       	   margin-top: 50px;
+       }
+       #output_canvas {
+       	   margin-top: 50px;
+       }
+    </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha512-v8ng/uGxkge3d1IJuEo6dJP8JViyvms0cly9pnbfRxT6/31c3dRWxIiwGnMSWwZjHKOuY3EVmijs7k1jz/9bLA==" crossorigin="anonymous"></script>
     <script src="../static/js/script.js"></script>
 </head>
 <body>
-<h1 style="color: #9933ff; text-align:center;">Streamix</h1>
-<div>
+<!--<h1 style="color: #9933ff; text-align:center;">Streamix</h1>-->
+   <div id="logo">
+      <img id="logopng" src="./static/images/streamix.png" style/>
+   </div>
+   <div id="videos">
     <video id="video" width="640" playsinline autoplay ></video>
-    <canvas id="output-canvas" width="640" height="360" ></canvas>
-</div>
+    <image id="img" width="640" height="360"></image>
+   </div>
 <h1 id="i" style="text-align: center;">Outgoing Frame</h1>
 <h1 style="text-align: center;">****</h1>
 <h1 id="j" style="text-align:center;">Incoming Frame</h1>

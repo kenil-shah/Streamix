@@ -1,0 +1,41 @@
+<DOCTYPE=HTML>
+<html language=en>
+<head>
+    <meta charset="UTF-8">
+    <title>Streamix</title>
+    <style>
+       #images {
+           width:55vw;
+           margin:auto;
+       }
+       #logopng {
+           width: 120px;
+           height: 50px;
+       }
+       .bgimages {
+           width: 200px;
+           height: 112px;
+       }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha512-v8ng/uGxkge3d1IJuEo6dJP8JViyvms0cly9pnbfRxT6/31c3dRWxIiwGnMSWwZjHKOuY3EVmijs7k1jz/9bLA==" crossorigin="anonymous"></script>
+</head>
+<body>
+   <div id="logo">
+      <img id="logopng" src="./static/images/streamix.png" style/>
+   </div>
+   <h3> Choose your background </h3>
+   <div id="images">
+      <img class="bgimages" src="./static/images/StudyTable.jpg" href="./test.html" onclick="load_StudyTable()"/>
+      <img class="bgimages" src="./static/images/sf_bridge.jpg" href="./test.html" onclick="load_sfbridge()"/>
+      <img class="bgimages" src="./static/images/HomeBG2.jpg" href="./test.html" onclick="load_HomeBG2()"/>
+      <img class="bgimages" src="./static/images/HomeBG.jpg" href="./test.html" onclick="load_HomeBG()"/>
+      <img class="bgimages" src="./static/images/EmpireState.png" href="./test.html" onclick="load_EmpireState()"/>
+   </div>
+   <p id="status"></p>
+   <form action="http://localhost:5000/startvideo">
+      <input type="submit" value="Start Video">
+   </form>
+   <script src="./static/js/selectimage.js"></script>
+
+</body
+
