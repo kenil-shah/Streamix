@@ -1,6 +1,5 @@
 numpy==1.18.4
-torch==1.5.0
-torchvision==0.4.0
+torch==1.6.0+cpu torchvision==0.7.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
 opencv-contrib-python==4.2.0.34
 opencv-python==4.2.0.34
 onnx==1.7.0
