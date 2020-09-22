@@ -18,5 +18,6 @@ class App:
     def process_task(self):
         self.process_manager.main_task()
 
+
 app = App()
 app.gui_thread()

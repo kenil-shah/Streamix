@@ -4,6 +4,7 @@ import os
 import cv2
 import argparse
 # Root directory of the project
+import sys
 from main import get_segmentation
 ROOT_DIR = os.getcwd()
 
@@ -39,11 +40,11 @@ class Virtual_BG:
     def set_parameters(self):
         parser = argparse.ArgumentParser(description='Background Matting')
         parser.add_argument('--model',
-                            default='C:/Users/Kenil/Desktop/Github/Streamix/data/models/only_par.pth',
+                            default='C:/Users/Kenil/Desktop/Github/Streamix/data/models/only_params.pth',
                             help='Location of the Trained Model')
         parser.add_argument('--without_gpu', action='store_true', default=True, help='Use CPU')
         parser.add_argument('--background_image',
-                            default='C:/Users/Kenil/Desktop/Github/Streamix/data/bg_images/sf_bridge.jpg',
+                            default='C:/Users/Kenil/Desktop/Github/Streamix/data/bg_images/StudyTable.jpg',
                             help='Location of Background Image')
         parser.add_argument('--input_resolution', default=256, help='Input resolution (Higher == Slower == Acccurate)')
         parser.add_argument('--camera_resolution', default=[640, 360],
@@ -60,6 +61,7 @@ class Virtual_BG:
         self.videoCapture.set(cv2.CAP_PROP_FRAME_HEIGHT, self.args["camera_resolution"][1])
         self.args = self.set_parameters()
         self.args["background_image"] = self.data_bridge.selected_background_file_path
+        print(self.args["background_image"])
         self.get_background = get_segmentation(self.args)
         while self.data_bridge.start_process_manager:
             ret, frame = self.videoCapture.read()

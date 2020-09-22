@@ -6,13 +6,13 @@ import numpy
 import cv2
 import base64
 import time
-import argparse
 import os
 from python_background_pipeline.segmenter import get_segmentation
 
 
 pathtomodel = os.path.join("..", "data", "models", "only_params.pth")
 pathtobg = os.path.join("..", "data", "bg_images", "HomeBG.jpg")
+
 
 def get_args():
 
