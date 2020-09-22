@@ -26,13 +26,13 @@ requests. Images are transmitted in the Base64 encoded format back and forth bet
 2. ```code/templates/index.html``` represents the main webpage user will interact with.
 3. ```code/static/js/script.js``` handles the requests to the server and collects the images back.
 
-#### server.py
+### server.py
 1. ```handle_request()``` method provides the main webpage to users when they send initial request to the server.
 2. ```handle_image()``` method is called whenever client sends a frame to the server for segmentation. This method takes ```data``` as input 
 which is data transmitted from the client and sends the segmented image back. These images are encoded as Base64 byte data.
 3. ```get_args()``` method initializes the parameter for segmentation class ```get_segmentation```.
 
-#### index.html
+### index.html
 There are 4 main elements of this page:
 1. ```video tag```: shows the input from clients web cam.
 2. ```image tag```: shows the output from the implemented algorithm.
@@ -41,7 +41,7 @@ There are 4 main elements of this page:
 
 Our goal is to find an optimal value for interval with which frames are beings sent such that difference between output frame count and input frame count is as little as possible.
 
-#### script.js
+### script.js
 1. ```init()``` function asks user for permission to access the webcam, initilizes video element with webcam video stream and calls ```compute_frame()``` to start sending frames over.
 2. ```compute_frame()``` function captures the frame from the video element and send it to the server. This function calls itself after every 40 milliseconds.
 3. ```socket.on()``` function accepts output frames from the server and displays it in the image element.
