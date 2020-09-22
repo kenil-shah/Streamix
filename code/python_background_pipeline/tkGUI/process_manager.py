@@ -16,5 +16,6 @@ class Process_manager:
         while True:
             while not self.data_bridge.start_process_manager:
                 self.gui_root.update()
-            self.methods_dict[self.data_bridge.methode_chosen_by_radio_butten].main_thread()
+            self.methods_dict[self.data_bridge.methode_chosen_by_radio_butten].main_thread(
+            )
             self.gui_root.update()

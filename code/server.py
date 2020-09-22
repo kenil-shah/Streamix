@@ -14,6 +14,7 @@ from python_background_pipeline.segmenter import get_segmentation
 pathtomodel = os.path.join("..", "data", "models", "only_params.pth")
 pathtobg = os.path.join("..", "data", "bg_images", "HomeBG.jpg")
 
+
 def get_args():
 
     args = {}
@@ -36,6 +37,7 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 Payload.max_decode_packets = 100
 
 socketio = SocketIO(app)
+
 
 @socketio.on('image')
 def handle_image(data):

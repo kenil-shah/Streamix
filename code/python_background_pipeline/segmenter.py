@@ -1,13 +1,13 @@
+import sys
+from python_background_pipeline.net.segnet import SegMattingNet
+import warnings
+import numpy as np
+import argparse
 import cv2
 import torch
 import torch.onnx
 torch.set_grad_enabled(False)
-import argparse
-import numpy as np
-import warnings
 warnings.filterwarnings("ignore")
-from python_background_pipeline.net.segnet import SegMattingNet
-import sys
 
 
 class get_segmentation(object):
@@ -26,7 +26,11 @@ class get_segmentation(object):
 
     def load_background(self):
         image = cv2.imread(self.background_image)
-        image = cv2.resize(image, (self.camera_res[0], self.camera_res[1]), interpolation=cv2.INTER_CUBIC)
+        image = cv2.resize(
+            image,
+            (self.camera_res[0],
+             self.camera_res[1]),
+            interpolation=cv2.INTER_CUBIC)
         return image
 
     def load_model(self):
@@ -39,14 +43,23 @@ class get_segmentation(object):
 
     def seg_process(self, image, net):
         origin_h, origin_w, c = image.shape
-        image_resize = cv2.resize(image, (self.INPUT_SIZE, self.INPUT_SIZE), interpolation=cv2.INTER_CUBIC)
+        image_resize = cv2.resize(
+            image,
+            (self.INPUT_SIZE,
+             self.INPUT_SIZE),
+            interpolation=cv2.INTER_CUBIC)
         image_resize = (image_resize - (104., 112., 121.,)) / 255.0
         tensor_4D = torch.FloatTensor(1, 3, self.INPUT_SIZE, self.INPUT_SIZE)
-        tensor_4D[0, :, :, :] = torch.FloatTensor(image_resize.transpose(2, 0, 1))
+        tensor_4D[0, :, :, :] = torch.FloatTensor(
+            image_resize.transpose(2, 0, 1))
         inputs = tensor_4D.to(self.device)
         seg, alpha = net(inputs)
         alpha_np = alpha[0, 0, :, :].data.numpy()
-        fg_alpha = cv2.resize(alpha_np, (self.camera_res[0], self.camera_res[1]), interpolation=cv2.INTER_CUBIC)
+        fg_alpha = cv2.resize(
+            alpha_np,
+            (self.camera_res[0],
+             self.camera_res[1]),
+            interpolation=cv2.INTER_CUBIC)
         fg_alpha[fg_alpha < self.threshold] = 0
         fg_alpha[fg_alpha >= self.threshold] = 1
         bg_alpha = 1 - fg_alpha
