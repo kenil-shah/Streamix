@@ -7,7 +7,7 @@ Graphical User Interface using Tkinter in python. The user will have the ability
 
 ![Alt Text](https://github.com/kenil-shah/Streamix/blob/master/data/readme_files/localGUI.PNG)
 
-#Location of Code
+# Location of Code
 The code that implements the above mentioned Segmentation algorithm is located in
 ```
 code/python_background_pipeline/tkGUI/
