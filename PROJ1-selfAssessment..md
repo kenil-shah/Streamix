@@ -48,4 +48,4 @@
 ||evidence that the whole team is using the same tools (e.g. tutor can ask anyone to share screen, they demonstrate the system running on their computer)	|4|
 ||evidence that the members of the team are working across multiple places in the code base|4|	
 |low-regressions rule	|(hard to judge) features released are not subsequently removed	|2|
-|short release cycles	|(hard to see in short projects) project members are committing often enough so that everyone can get your work	|0|
+|short release cycles	|(hard to see in short projects) project members are committing often enough so that everyone can get your work	|2|
