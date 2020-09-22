@@ -3,3 +3,7 @@ opencv-contrib-python==4.2.0.34
 opencv-python==4.2.0.34
 flask==1.1.1
 Flask-SocketIO==4.3.1
+--find-links https://download.pytorch.org/whl/torch_stable.html
+torch==1.6.0+cpu
+--find-links https://download.pytorch.org/whl/torch_stable.html
+torchvision==0.7.0+cpu
