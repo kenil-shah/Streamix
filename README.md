@@ -23,6 +23,8 @@ pip install -r requirements.txt
 ```
 python server.py
 ```
+# How to Contribute?
+Please take a look at our CONTRIBUTING.md where we provide instructions on contributing to the repo and help us in enhancing the current video conferencing platforms.
 
 # What things have been done for Phase1?
 * Implemented the segmentation algorithm discussed in this [paper](https://arxiv.org/pdf/1707.08289.pdf).
