@@ -5,7 +5,7 @@
     <title>Streamix | Test Server</title>
     <style>
        #images {
-           width:55vw;
+           width:100%;
            margin:auto;
        }
        #logopng {
@@ -17,7 +17,7 @@
            height: 112px;
        }
        #videos {
-       	   width: 80vw;
+       	   width: 100%;
        	   margin:auto;
        }
        #video {
@@ -26,6 +26,14 @@
        #output_canvas {
        	   margin-top: 50px;
        }
+       .left-div {
+            float: left;
+            width: 50%;
+            margin-right: 8px;
+        }
+        .right-div {
+            margin-left: 8px;
+        }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha512-v8ng/uGxkge3d1IJuEo6dJP8JViyvms0cly9pnbfRxT6/31c3dRWxIiwGnMSWwZjHKOuY3EVmijs7k1jz/9bLA==" crossorigin="anonymous"></script>
     <script src="../static/js/script.js"></script>
@@ -38,7 +46,12 @@
     <video id="video" width="640" playsinline autoplay ></video>
     <image id="img" width="640" height="360"></image>
    </div>
-<h1 id="i" style="text-align: center;">Outgoing Frame</h1>
-<h1 id="j" style="text-align:center;">Incoming Frame</h1>
+   <h1 style="text-align: center">Original frame count  v/s  Streamix frame count</h1>
+   <div class="left-div">
+       <h1 id="i" style="text-align: center;">Outgoing Frame</h1>
+   </div>
+   <div class="right-div">
+      <h1 id="j" style="text-align:center;">Incoming Frame</h1>
+   </div>
 </body>
 </html>
