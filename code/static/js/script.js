@@ -44,7 +44,7 @@ function computeFrame() {
     i = i+1;
     ie.innerHTML = i.toString();
     je.innerHTML = j.toString();
-    setTimeout(computeFrame, 40);
+    setTimeout(computeFrame, 45);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
