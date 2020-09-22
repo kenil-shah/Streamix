@@ -2,6 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4033418.svg)](https://doi.org/10.5281/zenodo.4033418)
 [![Build Status](https://travis-ci.com/kenil-shah/Streamix.svg?branch=master)](https://travis-ci.org/kenil-shah/Streamix)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![YouTube Video Views](https://img.shields.io/youtube/views/2DVQ2XwhtUI?style=social)
 
 # About Streamix
