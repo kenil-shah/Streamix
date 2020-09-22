@@ -10,9 +10,14 @@ Streamix is a video conferencing feature that provides you seamless virtual back
 
 
 # Installation
+1. Clone Streamix Repo
+2. From the root directory run the following command
+```
+pip install -r requirements.txt
+```
 
-To run the flask server, run the following commands from the project's root directory:
-1. ```pip install -r requirements.txt```
-2. ```set FLASK_APP=code/server.py```
-3. Only if you are a developer, ```set FLASK_ENV=development```
-4. ```python -m flask run```
+# Usage
+1. Go to code directory and run the following command.
+```
+python server.py
+```

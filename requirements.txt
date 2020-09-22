@@ -1,6 +1,4 @@
 numpy==1.18.4
-torch==1.6.0+cpu --find-links https://download.pytorch.org/whl/torch_stable.html
-torchvision==0.7.0+cpu --find-links https://download.pytorch.org/whl/torch_stable.html
 opencv-contrib-python==4.2.0.34
 opencv-python==4.2.0.34
 flask==1.1.1
