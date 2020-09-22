@@ -1,4 +1,4 @@
-# Contributing to CSC-510-HW1
+# Contributing to SE Project Streamix
 
 :+1::tada: First off, thanks for taking the time to contribute! :tada::+1:
 
