@@ -9,7 +9,7 @@ Main purpose behind hosting this server is to analyse the performance of the dev
 of time for sending frame between client and server continuously. This is important since testing algorithm using local GUI
 application does not consider this additional lag. 
 
-![Alt Text](https://github.com/kenil-shah/Streamix/blob/master/data/readme_files/flask_demo.PNG)
+![Alt Text](https://github.com/kenil-shah/Streamix/blob/master/data/readme_files/flask_demo.png)
 
 ## approach
 
