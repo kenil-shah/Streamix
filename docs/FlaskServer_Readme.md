@@ -38,6 +38,7 @@ There are 4 main elements of this page:
 2. ```image tag```: shows the output from the implemented algorithm.
 3. ```output frame count```: shows the frame number that is being sent to the server.
 4. ```input frame count```: shows the frame number that is being received from the server.
+
 Our goal is to find an optimal value for interval with which frames are beings sent such that difference between output frame count and input frame count is as little as possible.
 
 #### script.js
