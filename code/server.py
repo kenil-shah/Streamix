@@ -53,8 +53,8 @@ def handle_image(data):
 
 
 @app.route('/')
-def hello_world():
-    return render_template("test.html")
+def handle_request():
+    return render_template("index.html")
 
 
 if __name__ == '__main__':
