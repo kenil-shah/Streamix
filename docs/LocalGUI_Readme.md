@@ -1,22 +1,27 @@
-# About Segmentation Algorithm
-We have implement a CNN based Segmentation algorithm which is capable of giving binary class for every person.
-At the output end of this algorithm, we will have a floating point value between 0 to 1 for every single pixel in the image.
-We will pre-define a specific threshold value and if a particular pixel is less than that value, then we will consider it
-as a background.
+# About Local GUI
+In order to run the Virtual Background Application locally, we have added the a
+Graphical User Interface using Tkinter in python. The user will have the ability to select from the two methods,
+1. Run Normal Webcam:
+2. Run Virtual Background:
 
-![Alt Text](https://github.com/kenil-shah/Streamix/blob/master/data/readme_files/model_description.PNG)
+
+![Alt Text](https://github.com/kenil-shah/Streamix/blob/master/data/readme_files/localGUI.PNG)
 
 #Location of Code
 The code that implements the above mentioned Segmentation algorithm is located in
 ```
-code/python_background_pipeline/net/segnet.py
+code/python_background_pipeline/tkGUI/
 ```
 
 # Code Description
-## Classes
-1. ResidualDenseBlock():
-
-2. SegMattingNet()
+## Python Packages
+1. app.py:
+2. data_bridge.py
+3. gui_creator.py
+4. main.py
+5. methods.py
+6. process_manager.py
+7. segnet.py
 
 # Reference
-- [1] [Fast Deep Matting for Portrait Animation on Mobile Phone](https://arxiv.org/pdf/1707.08289.pdf)
+- [1] [Use Tkinter for Python GUI](https://docs.python.org/3/library/tkinter.html)
