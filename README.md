@@ -11,8 +11,6 @@ Streamix is a video conferencing feature that provides you seamless virtual back
 
 
 # Installation
-1. Clone Streamix Repo
-2. From the root directory run the following command
 ```
 git clone https://github.com/kenil-shah/Streamix.git
 cd Streamix
