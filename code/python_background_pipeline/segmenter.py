@@ -25,13 +25,14 @@ class get_segmentation(object):
         self.myModel = self.load_model()
 
     def load_background(self):
-        image = cv2.imread(self.background_image)
+        #image = cv2.imread(self.background_image)
+        image = cv2.imread("EmpireState.png")
         image = cv2.resize(image, (self.camera_res[0], self.camera_res[1]), interpolation=cv2.INTER_CUBIC)
         return image
 
     def load_model(self):
         myModel = SegMattingNet()
-        myModel.load_state_dict(torch.load(self.model), strict=False)
+        myModel.load_state_dict(torch.load('only_params.pth'), strict=False)
 #        myModel = torch.load(self.model, map_location=lambda storage, loc: storage)
         myModel.eval()
         myModel.to(self.device)
