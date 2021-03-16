@@ -23,6 +23,11 @@ pip install -r requirements.txt
 ```
 python server.py
 ```
+2. Run the docker file
+```
+docker build --tag my-python-app .
+docker run --name python-app -p 5000:5000 my-python-app
+```
 # How to Contribute?
 Please take a look at our CONTRIBUTING.md where we provide instructions on contributing to the repo and help us in enhancing the current video conferencing platforms.
 
